@@ -14,23 +14,12 @@
                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
                http://www.mulesoft.org/schema/mule/domain http://www.mulesoft.org/schema/mule/domain/current/mule-domain.xsd">
 
-    <!-- configure here resource to be shared within the domain -->
-
-	<!-- Import common xml file that imports properties files at various levels -->
+    <!-- Import common xml file that imports properties files at various levels -->
 	<spring:beans>
 		<spring:import resource="classpath:services-common.xml" />
 	</spring:beans>
 	
-	<!-- DFSP apikit HTTP configuration -->
+	<!-- Apikit HTTP configuration -->
 	<http:listener-config name="api-httpListenerConfig" host="${proxy-service.host}" port="${proxy-service.port}" doc:name="HTTP Listener Configuration"/>
 	
-	<!-- DFSP mock apikit HTTP configuration -->
-	<http:listener-config name="mock-api-httpListenerConfig" host="${client-service.host}" port="${client-service.port}" doc:name="Mock-HTTP Listener Configuration"/>
-	
-	<!-- DFSP HTTP configuration for making REST call to the mock service -->
-	<http:request-config name="DFSP_Gateway_Configuration" host="${client-service.host}" port="${client-service.port}" basePath="${dfsp-client-service.basePath}" doc:name="HTTP Request Configuration"/>
-	
-	<!-- SPSP HTTP configuration for making REST call to the mock service -->
-	<http:request-config name="SPSP_Configuration" host="${client-service.host}" port="${client-service.port}" basePath="${spsp-client-service.basePath}" doc:name="HTTP Request Configuration" responseTimeout="30000"/>
-
 </domain:mule-domain>
