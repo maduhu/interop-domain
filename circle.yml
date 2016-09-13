@@ -9,7 +9,7 @@ dependencies:
 
 test:
   override:
-    - echo "This project has been overriden not to run any tests"
+    - echo "This project test section has been overriden on the circle.yml file"
 
 deployment:
   releases:
