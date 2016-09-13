@@ -9,10 +9,7 @@ dependencies:
 
 test:
   override:
-    - "mvn integration-test -s /tmp/interop_maven_settings.xml"
-  post:
-    - mkdir -p $CIRCLE_TEST_REPORTS/junit/
-    - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
+    - echo "This project has been overriden not to run any tests"
 
 deployment:
   releases:
