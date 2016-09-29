@@ -32,21 +32,21 @@
 			<spring:constructor-arg ref="metricRegistry"/>
 		</spring:bean>
 		<spring:bean id="kafkaProducer" class="com.l1p.interop.mule.connector.metrics.reporter.MetricKafkaProducer" >
-			<spring:constructor-arg value="ec2-52-26-168-223.us-west-2.compute.amazonaws.com:9092"/> <!-- servers -->
-			<spring:constructor-arg value="main-test"/> <!-- client id -->
+			<spring:constructor-arg value="${metrics.reporter.kafka.broker}"/> <!-- servers -->
+			<spring:constructor-arg value="${metrics.reporter.kafka.clientID}"/> <!-- client id -->
 		</spring:bean>
 		<spring:bean id="kafkaReporter" class="com.l1p.interop.mule.connector.metrics.spring.ReporterFactory" factory-method="createKafkaReporter">
 			<spring:constructor-arg ref="metricRegistry"/>
-			<spring:constructor-arg value="bmgf.metric.20160915"/><!-- kafkaTopic -->
+			<spring:constructor-arg value="${metrics.reporter.kafka.topic}"/><!-- kafkaTopic -->
 			<spring:constructor-arg ref="kafkaProducer"/><!-- kafka producer -->
-			<spring:constructor-arg value="dev"/><!-- env -->
-			<spring:constructor-arg value="interop-dfsp-services"/><!-- app -->
+			<spring:constructor-arg value="${metrics.reporter.environment}"/><!-- env -->
+			<spring:constructor-arg value="${metrics.reporter.application}"/><!-- app -->
 		</spring:bean>
 		<!--<spring:bean id="csvReporterWithDeltas" class="com.l1p.interop.mule.connector.metrics.spring.ReporterFactory" factory-method="createCsvReporterWithDeltas">-->
 		<!--<spring:constructor-arg ref="metricRegistry"/>-->
-		<!--<spring:constructor-arg value="MetricsTest"/>&lt;!&ndash; directory for csv files &ndash;&gt;-->
-		<!--<spring:constructor-arg value="dev"/>&lt;!&ndash; env &ndash;&gt;-->
-		<!--<spring:constructor-arg value="interop-dfsp-services"/>&lt;!&ndash; app &ndash;&gt;-->
+		<!--<spring:constructor-arg value="${metrics.reporter.csv.directory}"/>&lt;!&ndash; directory for csv files &ndash;&gt;-->
+		<!--<spring:constructor-arg value="${metrics.reporter.environment}"/>&lt;!&ndash; env &ndash;&gt;-->
+		<!--<spring:constructor-arg value="${metrics.reporter.application}"/>&lt;!&ndash; app &ndash;&gt;-->
 		<!--</spring:bean>-->
 		<util:list id="scheduledReporters">
 			<!--<spring:ref bean="consoleReporter" />-->
