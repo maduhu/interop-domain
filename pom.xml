@@ -4,13 +4,13 @@
 	<parent>
 		<groupId>com.l1p.interop</groupId>
 		<artifactId>interop-parent</artifactId>
-		<version>1.0.7</version>
+		<version>1.0.8</version>
 	</parent>
 
 	<groupId>com.l1p.interop</groupId>
 	<artifactId>interop-domain</artifactId>
 	<packaging>mule-domain</packaging>
-	<version>0.1.10-SNAPSHOT</version>
+	<version>0.1.12-SNAPSHOT</version>
 	<name>Domain interop-domain Project</name>
 
 	<scm>
