@@ -10,12 +10,12 @@
 	<groupId>com.l1p.interop</groupId>
 	<artifactId>interop-domain</artifactId>
 	<packaging>mule-domain</packaging>
-	<version>0.1.15-SNAPSHOT</version>
+	<version>0.1.15</version>
 	<name>Domain interop-domain Project</name>
 
 	<scm>
 		<connection>scm:git:https://github.com/LevelOneProject/interop-domain</connection>
-	  <tag>HEAD</tag>
+	  <tag>interop-domain-0.1.15</tag>
   	</scm>
 
 	<build>
