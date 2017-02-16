@@ -46,10 +46,12 @@
     </spring:bean>
 
     <spring:bean id="ledgerUrlMapper" class="com.l1p.interop.ilp.ledger.LedgerUrlMapper">
+      <!-- Going from dfsp/actual ledger to adapter -->
       <spring:constructor-arg value="${ilp-ledger.url.replacement.regex}"/>
-      <spring:constructor-arg value="${ilp-ledger-adapter.ledgerURL}"/>
+      <spring:constructor-arg value="${ilp-ledger-adapter.ledgerAdapterURL}"/>
+      <!-- Going from adapter to dfsp/actual ledger -->
       <spring:constructor-arg value="${ilp-ledger-adapter.url.replacement.regex}"/>
-      <spring:constructor-arg value="${ilp-ledger.ledgerAdapterURL}"/>
+      <spring:constructor-arg value="${ilp-ledger.ledgerURL}"/>
     </spring:bean>
 
   </spring:beans>
