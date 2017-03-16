@@ -22,44 +22,42 @@ Contents:
 
 Project is built using Maven and uses Circle for Continous Integration.
 
-(How do you run this code?)
+### Installation and Setup
 
-(Example for NPM-published services--
+#### Anypoint Studio
+* [https://www.mulesoft.com/platform/studio](https://www.mulesoft.com/platform/studio)
+* Clone https://github.com/LevelOneProject/interop-domain.git to local Git repository
+* Import into Studio as a Maven-based Mule Project with pom.xml
+* Since this is a domain project, cannot be run in isolation from Studio but in conjunction with another project that is joined to it.
 
-Installation:
+#### Standalone Mule ESB
+* [https://developer.mulesoft.com/download-mule-esb-runtime](https://developer.mulesoft.com/download-mule-esb-runtime)
+* Add the environment variable you are testing in (dev, prod, qa, etc).  Open <Mule Installation Directory>/conf/wrapper.conf and find the GC Settings section.  Here there will be a series of wrapper.java.additional.(n) properties.  create a new one after the last one where n=x (typically 14) and assign it the next number (i.e., wrapper.java.additional.15) and assign -DMULE_ENV=dev as its value (wrapper.java.additional.15=-DMULE_ENV=dev)
+* Download the zipped project from Git
+* Copy zipped file (Mule Archived Project) to <Mule Installation Directory>/domains
 
-1. Install [Node.js and npm](https://nodejs.org/en/)
+### Run Application
 
-2. Configure your npm instance to use the LevelOneProject repository.
+#### Anypoint Studio
+* Since this is a domain project, cannot be run in isolation from Studio but in conjunction with another project that is joined to it. Run As Mule Application with Maven the other base level project that is joined to the domain.
 
-    See [Docs/Artifactory/NPM Repos](https://github.com/LevelOneProject/Docs/blob/master/Artifactory/npm_repos.md) for detailed instructions.
-
-3. Install the `(package name)` package.
-
-        npm install (package name)
-
-Running the server locally:
-
-    npm start
-
---end example)
+#### Standalone Mule ESB
+* CD to <Mule Installation Directory>/bin -> in terminal type ./mule
 
 ## Configuration
 
-pom.xml and circle.yml can be found at interop-domain repo
-
-(Explanation of important config parameters)
+[pom.xml](./pom.xml) and [circle.yml](./circle.yml) can be found in the repo, also linked here
 
 
 ## API
 
-The project in this repo does not offer an API, it offers a domain to shared resources by the Mule Interop projects.
+The project in this repo does not have an API. It contains shared resources used by the Mule Interop projects.
 
 ## Logging
 
-Sever path to logs is: /opt/mule/mule-dfsp1/logs
+Server path to logs is: <mule_home>/logs/*.log for example: /opt/mule/mule-dfsp1/logs/interop-domain.log
 
-(Explain important things about what gets logged or how to interpret the logs. Use subheaders if necessary.)
+Currently the logs are operational and include information such as TraceID and other details related to the calls or transactions such as path, method used, header information and sender/receiver details.
 
 ## Tests
 
