@@ -10,7 +10,7 @@
 	<groupId>com.l1p.interop</groupId>
 	<artifactId>interop-domain</artifactId>
 	<packaging>mule-domain</packaging>
-	<version>0.1.26-SNAPSHOT</version>
+	<version>0.1.27-SNAPSHOT</version>
 	<name>Domain interop-domain Project</name>
 
 	<scm>
@@ -19,7 +19,7 @@
   	</scm>
   	
   	<properties>
-  		<interop-common.version>1.0.25</interop-common.version>
+  		<interop-common.version>1.0.28</interop-common.version>
 	</properties>
 	
 	<build>
