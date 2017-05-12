@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <domain:mule-domain
+    xmlns:tls="http://www.mulesoft.org/schema/mule/tls"
     xmlns="http://www.mulesoft.org/schema/mule/core"
     xmlns:domain="http://www.mulesoft.org/schema/mule/domain"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,7 +10,8 @@
     xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
                http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-               http://www.mulesoft.org/schema/mule/domain http://www.mulesoft.org/schema/mule/domain/current/mule-domain.xsd">
+               http://www.mulesoft.org/schema/mule/domain http://www.mulesoft.org/schema/mule/domain/current/mule-domain.xsd
+               http://www.mulesoft.org/schema/mule/tls http://www.mulesoft.org/schema/mule/tls/current/mule-tls.xsd">
 
   <!-- Import common xml file that imports properties files at various levels -->
   <spring:beans>
@@ -57,7 +59,10 @@
   </spring:beans>
 
   <!-- Apikit HTTP configuration -->
-  <http:listener-config name="api-httpListenerConfig" host="${proxy-service.host}" port="${proxy-service.port}"
-                        doc:name="HTTP Listener Configuration"/>
+  <http:listener-config name="api-httpListenerConfig" host="${proxy-service.host}" port="${proxy-service.port}" doc:name="HTTPs Listener Configuration" protocol="HTTPS">
+          <tls:context>
+            <tls:key-store type="jks" path="serverStore.jks" alias="selfsigned" keyPassword="password" password="password"/>
+        </tls:context>
+  </http:listener-config>
 
 </domain:mule-domain>
