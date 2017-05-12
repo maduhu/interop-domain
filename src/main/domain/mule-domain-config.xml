@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<domain:mule-domain
-    xmlns="http://www.mulesoft.org/schema/mule/core"
-    xmlns:domain="http://www.mulesoft.org/schema/mule/domain"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:spring="http://www.springframework.org/schema/beans"
-    xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-    xmlns:http="http://www.mulesoft.org/schema/mule/http"
-    xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<domain:mule-domain xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:domain="http://www.mulesoft.org/schema/mule/domain" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
                http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
                http://www.mulesoft.org/schema/mule/domain http://www.mulesoft.org/schema/mule/domain/current/mule-domain.xsd">
 
-  <!-- Import common xml file that imports properties files at various levels -->
-  <spring:beans>
-    <spring:import resource="classpath:services-common.xml"/>
+	<!-- Import common xml file that imports properties files at various levels -->
+	<spring:beans>
+		<spring:import resource="classpath:services-common.xml" />
 
-    <spring:bean id="actualLedgerToLedgerAdapterUrlTransformer"
-                 class="com.l1p.interop.ActualLedgerToLedgerAdapterUrlTransformer">
-      <spring:property name="ledgerUrlMapper" ref="ledgerUrlMapper"/>
-      <spring:property name="urlFields">
-        <spring:list>
-          <spring:value>id</spring:value>
-          <spring:value>ledger</spring:value>
-          <spring:value>debits.account</spring:value>
-          <spring:value>credits.account</spring:value>
-          <spring:value>sourceAccount</spring:value>
-          <spring:value>account</spring:value>
-        </spring:list>
-      </spring:property>
-    </spring:bean>
+		<spring:bean id="actualLedgerToLedgerAdapterUrlTransformer"
+			class="com.l1p.interop.ActualLedgerToLedgerAdapterUrlTransformer">
+			<spring:property name="ledgerUrlMapper" ref="ledgerUrlMapper" />
+			<spring:property name="urlFields">
+				<spring:list>
+					<spring:value>id</spring:value>
+					<spring:value>ledger</spring:value>
+					<spring:value>debits.account</spring:value>
+					<spring:value>credits.account</spring:value>
+					<spring:value>sourceAccount</spring:value>
+					<spring:value>account</spring:value>
+				</spring:list>
+			</spring:property>
+		</spring:bean>
 
-    <spring:bean id="ledgerAdapterToActualLedgerUrlTransformer"
-                 class="com.l1p.interop.LedgerAdatperToActualLedgerUrlTransformer">
-      <spring:property name="ledgerUrlMapper" ref="ledgerUrlMapper"/>
-      <spring:property name="urlFields">
-        <spring:list>
-          <spring:value>id</spring:value>
-          <spring:value>ledger</spring:value>
-          <spring:value>debits.account</spring:value>
-          <spring:value>credits.account</spring:value>
-          <spring:value>sourceAccount</spring:value>
-          <spring:value>account</spring:value>
-        </spring:list>
-      </spring:property>
-    </spring:bean>
+		<spring:bean id="ledgerAdapterToActualLedgerUrlTransformer"
+			class="com.l1p.interop.LedgerAdatperToActualLedgerUrlTransformer">
+			<spring:property name="ledgerUrlMapper" ref="ledgerUrlMapper" />
+			<spring:property name="urlFields">
+				<spring:list>
+					<spring:value>id</spring:value>
+					<spring:value>ledger</spring:value>
+					<spring:value>debits.account</spring:value>
+					<spring:value>credits.account</spring:value>
+					<spring:value>sourceAccount</spring:value>
+					<spring:value>account</spring:value>
+				</spring:list>
+			</spring:property>
+		</spring:bean>
 
-    <spring:bean id="ledgerUrlMapper" class="com.l1p.interop.ilp.ledger.LedgerUrlMapper">
-      <!-- Going from dfsp/actual ledger to adapter -->
-      <spring:constructor-arg value="${ilp-ledger.url.replacement.regex}"/>
-      <spring:constructor-arg value="${ilp-ledger-adapter.ledgerAdapterURL}"/>
-      <!-- Going from adapter to dfsp/actual ledger -->
-      <spring:constructor-arg value="${ilp-ledger-adapter.url.replacement.regex}"/>
-      <spring:constructor-arg value="${ilp-ledger.ledgerURL}"/>
-    </spring:bean>
+		<spring:bean id="ledgerUrlMapper"
+			class="com.l1p.interop.ilp.ledger.LedgerUrlMapper">
+			<!-- Going from dfsp/actual ledger to adapter -->
+			<spring:constructor-arg value="${ilp-ledger.url.replacement.regex}" />
+			<spring:constructor-arg value="${ilp-ledger-adapter.ledgerAdapterURL}" />
+			<!-- Going from adapter to dfsp/actual ledger -->
+			<spring:constructor-arg value="${ilp-ledger-adapter.url.replacement.regex}" />
+			<spring:constructor-arg value="${ilp-ledger.ledgerURL}" />
+		</spring:bean>
+		
+		
 
-  </spring:beans>
+	</spring:beans>
 
-  <!-- Apikit HTTP configuration -->
-  <http:listener-config name="api-httpListenerConfig" host="${proxy-service.host}" port="${proxy-service.port}"
-                        doc:name="HTTP Listener Configuration"/>
+	<!-- Apikit HTTP configuration -->
+	<http:listener-config name="api-httpListenerConfig"
+		host="${proxy-service.host}" port="${proxy-service.port}" doc:name="HTTP Listener Configuration" />
 
 </domain:mule-domain>
