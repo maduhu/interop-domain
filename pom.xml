@@ -19,7 +19,7 @@
   	</scm>
   	
   	<properties>
-  		<interop-common.version>1.0.31</interop-common.version>
+  		<interop-common.version>1.0.32</interop-common.version>
 	</properties>
 	
 	<build>
