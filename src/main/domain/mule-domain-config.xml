@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <domain:mule-domain xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:domain="http://www.mulesoft.org/schema/mule/domain" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:spring="http://www.springframework.org/schema/beans" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-               http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-               http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
-               http://www.mulesoft.org/schema/mule/domain http://www.mulesoft.org/schema/mule/domain/current/mule-domain.xsd">
+					xmlns:domain="http://www.mulesoft.org/schema/mule/domain"
+					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+					xmlns:spring="http://www.springframework.org/schema/beans"
+					xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+					xmlns:http="http://www.mulesoft.org/schema/mule/http"
+					xmlns:context="http://www.springframework.org/schema/context"
+					xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/domain http://www.mulesoft.org/schema/mule/domain/current/mule-domain.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd">
 
 	<!-- Import common xml file that imports properties files at various levels -->
 	<spring:beans>
+		<context:property-placeholder location="file:/opt/mule/conf/mule-l1p.properties" order="5" ignore-unresolvable="true" ignore-resource-not-found="true" />
 		<spring:import resource="classpath:services-common.xml" />
+		
 
 		<spring:bean id="actualLedgerToLedgerAdapterUrlTransformer"
 			class="com.l1p.interop.ActualLedgerToLedgerAdapterUrlTransformer">
