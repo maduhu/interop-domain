@@ -14,7 +14,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 	<!-- Import common xml file that imports properties files at various levels -->
 	<spring:beans>
-		<!--<context:property-placeholder location="file:/opt/mule/conf/mule-l1p.properties" order="5" ignore-unresolvable="true" ignore-resource-not-found="true" />-->
+		<context:property-placeholder location="file:/opt/mule/conf/adapter-mapping.properties" order="6" ignore-unresolvable="true" ignore-resource-not-found="true" />
 		<spring:import resource="classpath:services-common.xml" />
 		
 
