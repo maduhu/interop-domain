@@ -64,7 +64,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
   <!-- Apikit HTTP configuration -->
   <http:listener-config name="api-httpListenerConfig" host="${proxy-service.host}" port="${proxy-service.port}" doc:name="HTTP Listener Configuration">
-    	<http:worker-threading-profile maxThreadsActive="256" maxThreadsIdle="32" maxBufferSize="1024" />
+    	<http:worker-threading-profile maxThreadsActive="16" maxThreadsIdle="4" />
   </http:listener-config>
 
 </domain:mule-domain>
