@@ -29,6 +29,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 					<spring:value>credits.account</spring:value>
 					<spring:value>sourceAccount</spring:value>
 					<spring:value>account</spring:value>
+					<spring:value>connectorAccount</spring:value>
 				</spring:list>
 			</spring:property>
 		</spring:bean>
@@ -44,6 +45,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 					<spring:value>credits.account</spring:value>
 					<spring:value>sourceAccount</spring:value>
 					<spring:value>account</spring:value>
+					<spring:value>connectorAccount</spring:value>
 				</spring:list>
 			</spring:property>
 		</spring:bean>
