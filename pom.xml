@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>com.l1p.interop</groupId>
 		<artifactId>interop-parent</artifactId>
-		<version>1.0.14</version>
+		<version>1.0.16</version>
 	</parent>
 
 	<groupId>com.l1p.interop</groupId>
@@ -19,7 +19,7 @@
   	</scm>
   	
   	<properties>
-  		<interop-common.version>1.0.37</interop-common.version>
+  		<interop-common.version>1.0.38</interop-common.version>
     </properties>
 	
 	<build>
